@@ -10,14 +10,18 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest  # Use 'self-hosted' if using local machine
+    runs-on: ubuntu-latest
 
     steps:
       - name: 🔄 Checkout Code
         uses: actions/checkout@v4
 
+      - name: 🛠️ Make Script Executable
+        run: chmod +x ./scripts/buildpush.sh
+
       - name: ▶️ Run Custom Script
-        run: bash /home/bsetec/jun20/dockerhub1demo/buildpush.sh
+        run: bash ./scripts/buildpush.sh
+
 
 
 
