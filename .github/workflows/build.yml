@@ -1,12 +1,9 @@
-name: Docker Build and Push
+name: 🚀 Docker Build and Push
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - main  # main branch-ku push panna trigger aagum
 
 jobs:
   build-and-push:
@@ -17,10 +14,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🛠️ Make Script Executable
-        run: chmod +x ./scripts/buildpush.sh
+        run: chmod +x ./buildpush.sh
 
-      - name: ▶️ Run Custom Script
-        run: bash ./scripts/buildpush.sh
+      - name: ▶️ Run Build and Push Script
+        run: ./buildpush.sh
+
 
 
 
