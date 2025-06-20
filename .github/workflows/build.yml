@@ -1,26 +1,24 @@
-name: 🐳 Docker Build & Push via Shell Script
+name: buildpushimages
 
 on:
   push:
+    branches: 
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: 🔄 Checkout Repository
-        uses: actions/checkout@v4
+    env:
+      IMAGE_NAME: thatchayini123/dockerhub1demo
+      TAG: latest
 
-      - name: 🧪 Validate DockerHub Secrets
-        run: |
-          if [ -z "${{ secrets.DOCKER_USERNAME }}" ] || [ -z "${{ secrets.DOCKER_PASSWORD }}" ]; then
-            echo "❌ Secrets DOCKER_USERNAME or DOCKER_PASSWORD are not set!"
-            exit 1
-          else
-            echo "✅ Secrets are set."
-          fi
+    steps:
+      - name: 🔄 Checkout Code
+        uses: actions/checkout@v4
 
       - name: 🔐 Login to DockerHub
         uses: docker/login-action@v3
@@ -28,11 +26,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: 🧰 Make buildpush.sh Executable
-        run: chmod +x ./buildpush.sh
+      - name: 📦 Run build & push script
+        run: bash ./buildpush.sh
 
-      - name: 🚀 Run buildpush.sh Script
-        run: ./buildpush.sh
 
 
 
