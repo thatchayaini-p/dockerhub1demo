@@ -18,11 +18,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🔐 Check DockerHub Secrets
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          if [ -z "$DOCKER_USERNAME" ] || [ -z "$DOCKER_PASSWORD" ]; then
+          if [ -z "${{ secrets.DOCKER_USERNAME }}" ] || [ -z "${{ secrets.DOCKER_PASSWORD }}" ]; then
             echo "❌ DOCKER_USERNAME or DOCKER_PASSWORD secret is not set!"
             exit 1
           else
@@ -35,10 +32,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: 🔄 Make buildpush.sh executable
+        run: chmod +x ./buildpush.sh
+
       - name: 🚀 Run buildpush.sh script
-        run: |
-          chmod +x ./buildpush.sh
-          ./buildpush.sh
+        run: ./buildpush.sh
+
 
 
 
