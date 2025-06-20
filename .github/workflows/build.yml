@@ -22,10 +22,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🛠️ Make script executable
-        run: chmod +x jun20/dockerhub1demo/buildpush.sh
+        run: chmod +x /home/bsetec/jun20/dockerhub1demo/buildpush.sh
 
       - name: 🚀 Run Custom Script 
-        run: bash jun20/dockerhub1demo/buildpush.sh
+        run: bash /home/bstec/jun20/dockerhub1demo/buildpush.sh
 
 
 
