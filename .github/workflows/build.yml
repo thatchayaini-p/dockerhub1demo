@@ -9,11 +9,6 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
-    env:
-      IMAGE_NAME: thatchayaini123/dockerhub1demo
-      CONTAINER_NAME: mycontainer
-      PORT: 3000
-
     steps:
       - name: 🔄 Checkout Repository
         uses: actions/checkout@v4
@@ -24,11 +19,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: 🧰 Give execute permission to buildpush.sh
+      - name: 🧰 Make buildpush.sh executable
         run: chmod +x ./buildpush.sh
 
-      - name: 🚀 Run buildpush.sh
+      - name: 🚀 Run buildpush.sh script
         run: ./buildpush.sh
+
 
 
 
