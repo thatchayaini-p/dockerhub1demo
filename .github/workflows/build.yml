@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Custom Script 
-        run: bash home/bsetec/jun20/dockerhub1demo/buildpush.sh
+        run: bash buildpush.sh
 
 
 
