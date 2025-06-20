@@ -18,14 +18,15 @@ jobs:
       TAG: latest
 
     steps:
-      - name: Checkout Code
+      - name: 🔄 Checkout Code
         uses: actions/checkout@v4
 
-      - name: Make script executable
-        run: chmod +x buildpush.sh
+      - name: 🛠️ Make script executable
+        run: chmod +x jun20/dockerhub1demo/buildpush.sh
 
-      - name: Run Custom Script 
-        run: bash buildpush.sh
+      - name: 🚀 Run Custom Script 
+        run: bash jun20/dockerhub1demo/buildpush.sh
+
 
 
 
