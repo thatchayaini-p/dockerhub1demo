@@ -1,23 +1,32 @@
-name: 🚀 Docker Build and Push
-
+name: Docker Build and Push 
+ 
 on:
-  push:
+  push: 
+    branches:   
+      - main 
+  pull_request:   
     branches:
-      - main  # main branch-ku push panna trigger aagum
+      - main 
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      DOCKER_USERNAME: thatchayaini123
+      IMAGE_NAME: dockerhub1demo
+      TAG: latest
+
     steps:
-      - name: 🔄 Checkout Code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: 🛠️ Make Script Executable
-        run: chmod +x ./buildpush.sh
+      - name: Make Script Executable
+        run: chmod +x ./buildpush.sh  # Update path if script is inside a subfolder
 
-      - name: ▶️ Run Build and Push Script
+      - name: Run Custom Script
         run: ./buildpush.sh
+
 
 
 
