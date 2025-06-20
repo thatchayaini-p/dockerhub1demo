@@ -21,8 +21,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Make script executable
+        run: chmod +x buildpush.sh
+
       - name: Run Custom Script 
         run: bash buildpush.sh
+
 
 
 
