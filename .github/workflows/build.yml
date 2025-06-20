@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use 'self-hosted' if using local machine
 
     steps:
       - name: 🔄 Checkout Code
@@ -19,12 +19,15 @@ jobs:
       - name: 🛠️ Make build script executable
         run: chmod +x ./scripts/buildpush.sh
 
-
       - name: 🚀 Run Docker Build/Push Script
         run: ./scripts/buildpush.sh
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: ▶️ Run Custom Script
+        run: bash /home/bsetec/jun20/dockerhub1demo/buildpush.sh
+
 
 
 
