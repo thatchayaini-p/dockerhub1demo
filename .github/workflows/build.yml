@@ -25,7 +25,7 @@ jobs:
         run: chmod +x /home/bsetec/jun20/dockerhub1demo/buildpush.sh
 
       - name: 🚀 Run Custom Script 
-        run: bash /home/bstec/jun20/dockerhub1demo/buildpush.sh
+        run: bash /home/bsetec/jun20/dockerhub1demo/buildpush.sh
 
 
 
