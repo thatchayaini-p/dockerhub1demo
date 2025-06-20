@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: dockerhub1demo
+      IMAGE_NAME: thatchayaini123/dockerhub1demo
       TAG: latest
 
     steps:
@@ -39,5 +39,6 @@ jobs:
         run: |
           chmod +x ./buildpush.sh
           ./buildpush.sh
+
 
 
