@@ -13,11 +13,12 @@ jobs:
       - name: 🔄 Checkout Code
         uses: actions/checkout@v4
 
-      - name: 🛠️ Make script executable
-        run: chmod +x /home/bsetec/jun20/dockerhub1demo/buildpush.sh
+      - name: 🛠️ Make build script executable
+        run: chmod +x ./buildpush.sh
 
       - name: 🚀 Run Docker Build/Push Script
-        run: /home/bsetec/jun20/dockerhub1demo/buildpush.sh
+        run: ./buildpush.sh
+
 
 
 
